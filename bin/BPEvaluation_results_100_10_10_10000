@@ -1,0 +1,42 @@
+****************** iteration 0 ***************************
+BP Time Out: 10001 used
+BP: 3791 iterations, Max change is 0.5
+Q graph size: 1161
+SOG Time used: 10003
+Number of Random Restart: 290.0
+Number of Updates: 2606.0
+Number of Actions Seen: 562.0
+best: 3.2751370949263024E138
+Routine records: [0.0, 1.0, 1.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0]
+Final Score: 2.603091247090242E138
+SOG: out of 3: 0 wins!
+BP: out of 3: 0 wins!
+
+****************** iteration 1 ***************************
+BP Time Out: 10001 used
+BP: 4424 iterations, Max change is 0.31386843164066175
+Q graph size: 1309
+SOG Time used: 10001
+Number of Random Restart: 360.0
+Number of Updates: 2763.0
+Number of Actions Seen: 423.0
+best: 1.7470945836956538E138
+Routine records: [1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 1.0, 0.0, 0.0, 0.0, 0.0]
+Final Score: 1.7470945836956538E138
+SOG: out of 3: 0 wins!
+BP: out of 3: 0 wins!
+
+****************** iteration 2 ***************************
+BP Time Out: 10001 used
+BP: 5094 iterations, Max change is 0.10736726510984296
+Q graph size: 1419
+SOG Time used: 10001
+Number of Random Restart: 207.0
+Number of Updates: 2245.0
+Number of Actions Seen: 390.0
+best: 1.1494815504969483E138
+Routine records: [0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0]
+Final Score: 1.0519766075914485E138
+SOG: out of 3: 0 wins!
+BP: out of 3: 0 wins!
+
