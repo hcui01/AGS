@@ -534,7 +534,11 @@ public class Main {
 			System.out.println("************** Start running on: " + instanceName + "*************");
 			for(long time: Global.timesRef){
 				time *= 1000;
-				realFileName = "BPEvaluation_" + fileName + "_" + numberOfNodes + "_" + numberOfEvi + "_" + numberOfEvi + "_" + time;
+				if(ifRandom)
+					realFileName = "Evaluation_" + fileName + "_" + numberOfNodes + "_" + numberOfEvi + "_" + numberOfMap + "_" + (time / 1000);
+				else {
+					realFileName = "Evaluation_" + fileName + "_" + args[1] + "_" + (time / 1000);
+				}
 				ArrayList<Double> sta = Exe(numRuns, -1, -1, numberOfNodes, numberOfEvi, numberOfEvi, time, ifBPEval);
 				String folder = instanceName + "\\";
 				/*
