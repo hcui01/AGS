@@ -20,20 +20,24 @@ HOW TO USE
 * Prerequisites: Java SE 1.8 or higher
 * Compile
   In the SOGBOFA/ directory, type command ./compile
-* Run AGS on UAI files
+* Run AGS and BP on UAI files
   ./run_AGS UAI-dir instance-name ratio-MAP num-rounds timeout 
   For example: 
   ./run_AGS instances/ 50-12-1 0.1 10 10
   Note that the time out is in seconds. UAI probelms are sum-inference problems, so for each run, the system randomly generates MAP  nodes for the problem. The ratio-MAP argument is the ratio of MAP nodes to the size of the GM.
-* Run AGS on random problems
+* Run AGS and BP on random problems
   ./run_AGS num-nodes num-MAP num-evidence num-rounds timeout 
   For example: 
   ./run_AGS 100 10 10 10 10
   For this mode, the system generates a GM randomly with pre-fxied total number of nodes, number of MAP nodes and number of evidence nodes, for each run.
+* Evaluation
+  After running with AGS and BP on each problem, the system evaluates the solutions by excuting a belief propagation and performing sum-inference on the evidence nodes. 
 * Results
   After finishing the requested number of runs, a result files will be recorded in the bin/ folder, with the following names
   Evaluation_instance-name_timeout, if running with UAI files
   Evaluation_num-nodes_num-evidence_num-MAP_timeout, if running with random problems
+  The ouputs to the terminal are recorded into these files. Such outputs include running statistics and results for AGS.
+  For each problem, the system also records the solutions of AGS and BP to this problem. The solutions files are in bin/instance-name/Solution/AGS/timeout
 
 -------------------------------------------------------------------------
 UAI FILES READY TO USE
