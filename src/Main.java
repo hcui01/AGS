@@ -102,7 +102,7 @@ public class Main {
 		 * record solution of BP to bin 
 		 ***********************************************/
 		
-		createDir(instanceName + "_" + i  + fileSep + "Solution"  + fileSep + "MPBP"  + fileSep + time);
+		createDir(instanceName + "_" + i  + fileSep + "Solution"  + fileSep + "MPBP"  + fileSep + (time / 1000));
 		String solutionStr = new String();
 		
 		for(int k = 0; k < fg.MAP.size(); k ++){
@@ -115,7 +115,7 @@ public class Main {
 			}
 		}
 		//System.out.println("BP Results: " + solutionStr);
-		rec.fileAppend(instanceName + "_" + i + fileSep + "Solution"  + fileSep + "MPBP"  + fileSep + time + fileSep + "Solution", solutionStr);
+		rec.fileAppend(instanceName + "_" + i + fileSep + "Solution"  + fileSep + "MPBP"  + fileSep + (time / 1000) + fileSep + "Solution", solutionStr);
 
 		/**********************************************
 		 * Evaluarte BP results
@@ -163,7 +163,7 @@ public class Main {
 		/*****************************************
 		 *  record solution of SOGBOFA to bin
 		 ****************************************/
-		createDir(instanceName + "_" + i + fileSep + "Solution"  + fileSep + "AGS"  + fileSep + time);
+		createDir(instanceName + "_" + i + fileSep + "Solution"  + fileSep + "AGS"  + fileSep + (time/1000));
 		solutionStr = new String();
 		for(int k = 0; k < res.size(); k ++){
 			if(res.get(k) == 0){
@@ -173,7 +173,7 @@ public class Main {
 				solutionStr += (true + " ");
 			}
 		}
-		rec.fileAppend(instanceName + "_" + i + fileSep + "Solution"  + fileSep + "AGS"  + fileSep + time + fileSep + "Solution", solutionStr);
+		rec.fileAppend(instanceName + "_" + i + fileSep + "Solution"  + fileSep + "AGS"  + fileSep + (time/1000) + fileSep + "Solution", solutionStr);
 		
 		/*******************************************
 		 * evaluate the results from MPBP && SOGBOFA
