@@ -23,7 +23,7 @@ public class Main {
 	static public String dir = DBN.class.getProtectionDomain().getCodeSource().getLocation().getPath();
 	static public String fileName = "results";
 	static public boolean ifPrintStep = false;
-	static public boolean ifBPEval = false;
+	static public boolean ifBPEval = true;
 	static public boolean ifExactEval = false;
 	static public boolean ifOptimal = false;
 	static public int numberOfNodes = 100;
@@ -114,7 +114,7 @@ public class Main {
 				solutionStr += (true + " ");
 			}
 		}
-		System.out.println("BP Results: " + solutionStr);
+		//System.out.println("BP Results: " + solutionStr);
 		rec.fileAppend(instanceName + "_" + i + fileSep + "Solution"  + fileSep + "MPBP"  + fileSep + time + fileSep + "Solution", solutionStr);
 
 		/**********************************************
@@ -210,7 +210,7 @@ public class Main {
 		for(int i = 0; i < runTime; i ++){
 			createDir(instanceName + "_" + i);
 			TreeExp.nodesToNumber.clear();
-			System.out.println("plus hash: " + TreeExp.PlusHash.size());
+			//System.out.println("plus hash: " + TreeExp.PlusHash.size());
 			TreeExp.PlusHash.clear();		
 			TreeExp.MinusHash.clear();
 			TreeExp.TimesHash.clear();
@@ -237,6 +237,8 @@ public class Main {
 				if(ifOptimal){
 					OPTEval.add(twoEval.get(2));
 				}
+				recor.append("BP Score:" + twoEval.get(0) + "\n");
+				recor.append("AGS score:" + twoEval.get(1) + "\n");
 				if (twoEval.get(0) < twoEval.get(1)) {
 					countSOGWins++;
 				}
@@ -245,7 +247,7 @@ public class Main {
 					rec.fileAppend(dir, "LIFT_" + time, String.valueOf(twoEval.get(1)));
 				}
 				else{
-					rec.fileAppend(dir, "SOG_" + time, String.valueOf(twoEval.get(1)));
+					rec.fileAppend(dir, "AGS_" + time, String.valueOf(twoEval.get(1)));
 				}
 				
 				if(ifOptimal){
@@ -256,10 +258,10 @@ public class Main {
 			//System.out.println("out of 1000: " + countRight + " are right!");
 			if(ifOptimal){
 				recor.append("BP: out of " + numRuns + ": "  + countBPRight + " are right!\n");
-				recor.append("SOG: out of " + numRuns + ": "  + countSOGRight + " are right!\n");
+				recor.append("AGS: out of " + numRuns + ": "  + countSOGRight + " are right!\n");
 			}
 			else{
-				recor.append("SOG: out of " + numRuns + ": "  + countSOGWins + " wins!\n");
+				recor.append("AGS: out of " + numRuns + ": "  + countSOGWins + " wins!\n");
 				recor.append("BP: out of " + numRuns + ": "  + countBPWins + " wins!\n");
 			}
 			System.out.print(recor);
@@ -420,15 +422,15 @@ public class Main {
 			if(secondVal == -1){
 				oneVal = -1;
 			}
-			recor.append("BP: " + firstRes + " " + oneVal + "\n");
-			recor.append("SOG: " + oriRes + " " + secondVal + "\n");
+			recor.append("BP: " + oneVal + "\n");
+			recor.append("AGS: " + secondVal + "\n");
 			
 			if(oneVal > secondVal){
 				recor.append("BP ");
 			}
 			else{
 				if(secondVal > oneVal){
-					recor.append("SOG ");
+					recor.append("AGS ");
 				}
 				else{
 					recor.append("No one ");
@@ -531,7 +533,7 @@ public class Main {
 		for(int i = 0; i < instanceNames.size(); i ++) {
 			instanceName = instanceNames.get(i);
 			dir = dir.substring(0, dir.lastIndexOf('/') + 1);
-			System.out.println("************** Start running on: " + instanceName + "*************");
+			//System.out.println("************** Start running on: " + instanceName + "*************");
 			for(long time: Global.timesRef){
 				time *= 1000;
 				if(ifRandom)

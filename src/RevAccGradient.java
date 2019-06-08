@@ -516,7 +516,7 @@ public class RevAccGradient{
 					UpdateRoutine(F, actionProb, true);
 				}
 				stopAlgorithm = true;
-				recor.append("SOG Time used: " + (System.currentTimeMillis() - t00) + "\n");
+				//recor.append("SOG Time used: " + (System.currentTimeMillis() - t00) + "\n");
 				break;
 			}
 			double updatedasCounter = 0;
@@ -634,7 +634,7 @@ public class RevAccGradient{
 						UpdateRoutine(F, actionProb, true);
 					}
 					stopAlgorithm = true;
-					recor.append("SOG Time used: " + (System.currentTimeMillis() - t00) + "\n");
+					//recor.append("SOG Time used: " + (System.currentTimeMillis() - t00) + "\n");
 					break;
 				}
 
@@ -835,7 +835,7 @@ public class RevAccGradient{
 				recor.append(a + "\n");
 			}
 		}
-		recor.append("best: " + bestQ + "\n");
+		//recor.append("best: " + bestQ + "\n");
 		que = null;
 		//System.out.println(completeBest);
 		
@@ -1033,9 +1033,9 @@ public class RevAccGradient{
 		}
 		*/
 		if(ifRecordRoutine){
-			recor.append("Routine records: ");
-			recor.append(bestNumAct + "\n");
-			recor.append("Final Score: " + highestScore + "\n");
+			//recor.append("Routine records: ");
+			//recor.append(bestNumAct + "\n");
+			//recor.append("Final Score: " + highestScore + "\n");
 		}
 		ArrayList<Double> actions = new ArrayList<>();
 		actions = SampleAction();

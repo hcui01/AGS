@@ -287,7 +287,8 @@ public class BP {
 				System.out.println(maxChange);
 			}
 		}
-		System.out.println("BP Evaluation: Max change is " + maxChangeForBP);
+		
+		//System.out.println("BP Evaluation: Max change is " + maxChangeForBP);
 		//System.out.println(System.currentTimeMillis() - currentTime);
 	}
 	
