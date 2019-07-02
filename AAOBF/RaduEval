@@ -1,0 +1,23 @@
+#!/bin/bash
+#SBATCH --mem=120000
+#SBATCH --output=/cluster/shared/hcui01/Radu_Eval_stdout
+#SBATCH --error=/cluster/shared/hcui01/Radu_Eval_errout
+
+for dir in ../Problems/*/
+do
+   prob=${dir%*/}
+   prob=${prob##*/}
+   prob=${prob%_*}
+   
+   for i in 100 200 300 400 500 600 700 800 900 1000 2000 3000 4000 5000 6000 7000 8000 9000 10000
+   do 
+      echo -e "\n\n ************************************************ \n"
+      solutionDir=${dir}Solution/AGS/${i}
+      echo Evaluate: AGS  Problem: ${prob}  time: ${i} milliseconds
+      ./mmap-solver --input-file ${dir}${prob}.uai --evidence-file ${dir}${prob}.uai.evid --map-file ${dir}${prob}.uai.map --solution-file ${solutionDir}/Solution --algorithm evaluator --seed 12345678 --verbose --positive --eval ao
+      echo -e "\n\n ************************************************ \n"
+      echo Evaluate: MPBP  Problem: ${prob}  time: ${i}
+      ./mmap-solver --input-file ${dir}${prob}.uai --evidence-file ${dir}${prob}.uai.evid --map-file ${dir}${prob}.uai.map --solution-file ${dir}/Solution/MPBP/${i}/Solution --algorithm evaluator --seed 12345678 --verbose --positive --eval ao 
+   done
+done
+sleep 10000h

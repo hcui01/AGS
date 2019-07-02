@@ -1,0 +1,15 @@
+#!/bin/bash
+#SBATCH --mem=120000
+#SBATCH --output=/cluster/shared/hcui01/Radu_Software_stdout
+#SBATCH --error=/cluster/shared/hcui01/Radu_Software_errout
+
+for dir in ../Problems/*/
+do
+   prob=${dir%*/}
+   prob=${prob##*/}
+   prob=${prob%_*}
+   ./mmap-solver --input-file ${dir}${prob}.uai --evidence-file ${dir}${prob}.uai.evid --map-file ${dir}${prob}.uai.map --algorithm aobb --heuristic wmb-mm --ibound 10 --seed 12345678 --verbose --positive
+   ./mmap-solver --input-file ${dir}${prob}.uai --evidence-file ${dir}${prob}.uai.evid --map-file ${dir}${prob}.uai.map --solution-file ${dir}Solution --algorithm evaluator --seed 12345678 --verbose --positive --eval ao
+done
+
+sleep 10000h

@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --mem=120000
+#SBATCH --output=/cluster/shared/hcui01/Radu_Anytime_stdout
+#SBATCH --error=/cluster/shared/hcui01/Radu_Anytime_errout
+
+for dir in ../../NIPS/Problems/*/
+do
+   prob=${dir%*/}
+   prob=${prob##*/}
+   prob=${prob%_*}
+   for i in 1 2 3 4 5 6 7 8 9 10
+   do 
+        (./timeout -t ${i} -m 80000000 ./mmap-solver --input-file ${dir}${prob}.uai --evidence-file ${dir}${prob}.uai.evid --map-file ${dir}${prob}.uai.map --algorithm any-aaobf --heuristic wmb-mm --ibound 10 --seed 12345678 --verbose --positive ) &
+        sleep 15s
+   done
+done
+
+sleep 10000h
