@@ -48,8 +48,10 @@ Please find all the instance files that we used in the NeurIPS 2018 paper in the
 Run the AAOBF Algorithm
 
 We only provide the binary files for AAOBF in the AAOBF/ foler. To reproduce the results of AAOBF in our paper, enter the folder and use the following command:
+
 ./timeout -t ${timeOut} -m ${memOut} ./mmap-solver --input-file ${dir}${prob}.uai --evidence-file ${dir}${prob}.uai.evid --map-file ${dir}${prob}.uai.map --algorithm any-aaobf --heuristic wmb-mm --ibound 10 --seed 12345678 --verbose --positive
 where the ${timeOut} is the inference time (seconds), $memOut$ is the maximum memory (KB), ${dir} is the directory of the problem files, and ${pro} is the domain name. For example, 
+
 ./timeout -t 10 -m ${memOut} ./mmap-solver --input-file instances/50-20-1.uai --evidence-file instances/50-20-1.uai.evid --map-file instances/50-20-1.uai.map --algorithm any-aaobf --heuristic wmb-mm --ibound 10 --seed 12345678 --verbose --positive
 
 The aaobf algorithm is anytime, so it prints the anytime lower bound of the evaluation, as follows:
@@ -68,6 +70,7 @@ Once running out of time the results can be extracted from the output of the sof
 Use AAOBF for Exact Evaluation
 
 In our paper, for some problems that are not very large, we use AAOBF to evaluate solutions exactly. To do so, enter the AAOBF/ folder and excute the following command:
+
 ./mmap-solver --input-file ${dir}${prob}.uai --evidence-file ${dir}${prob}.uai.evid --map-file ${dir}${prob}.uai.map --solution-file ${solutionDir}/${Solution} --algorithm evaluator --seed 12345678 --verbose --positive --eval ao
 
 And the ouput should look like:
@@ -82,6 +85,11 @@ Solution: 7.62682e-250 (-573.615)
 In this example, the line that starts with Solution: has two numbers 7.62682e-250 (-573.615). The first number is the value of the summation problem and includes the constant generated when asserting the evidence and MAP assignment. (-573.615) is the log of the summation value (i.e., ln(7.62682e-250) = -573.615).
 
 Note that all the "log" is the natural log ln.
+
+-------------------------------------------------------------------------
+Run Your Own MMAP Problem
+One can run AGS and AAOBF on his own problem through making their own UAI files. The UAI file format can be found on UAI challenge webpage: http://www.hlt.utdallas.edu/~vgogate/uai14-competition/index.html
+
 
 -------------------------------------------------------------------------
 OTHER WORK
