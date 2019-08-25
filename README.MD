@@ -1,7 +1,7 @@
 -------------------------------------------------------------------------
 OVERVIEW
 
-AGS is an approximate Marginal MAP Solver. The idea is motivated by SOGBOFA (https://github.com/hcui01/SOGBOFA), a symbolica gradint based online planner for MDPs. We observe that SOGBFOA can be directly used for Marginal MAP Inference on a special form of graphical models. We then invent a reduction which can turn any graphical model into such form, and use sogbofa to solve it. On UAI challenge problems, AGS is competitive to the state-of-the-art. On GM that have a large number of sum nodes, AGS outperforms the state-of-the-art with significant margin.
+AGS is an approximate Marginal MAP Solver. The idea is motivated by SOGBOFA (https://github.com/hcui01/SOGBOFA), a symbolic gradint based online planner for MDPs. We observe that SOGBFOA can be directly used for Marginal MAP Inference on a special form of graphical models. We then invent a reduction which can turn any graphical model into such form, and use sogbofa to solve it. On UAI challenge problems, AGS is competitive to the state-of-the-art. On GM that have a large number of sum nodes, AGS outperforms the state-of-the-art with significant margin.
    
 Please cite our paper if you are using the planner as a baseline, and/or star the project if you like it ^_^
 
@@ -11,7 +11,7 @@ RELATED PAPERS
 
 * Hao Cui, Radu Marinescu and Roni Khardon, From Stochastic Planning to Marginal MAP, Proceedings of the Conference on Neural Information Processing Systems (NIPS), 2018
 
-You can easily find any paper of your interest at Hao Cui's personal page
+You can find other papers of interest at Hao Cui's personal page
    https://sites.google.com/view/hao-cui/home
    
 -------------------------------------------------------------------------
@@ -29,7 +29,7 @@ HOW TO USE AGS
   ./run_AGS num-nodes num-MAP num-evidence num-rounds timeout 
   For example: 
   ./run_AGS 100 10 10 10 10
-  For this mode, the system generates a GM randomly with pre-fxied total number of nodes, number of MAP nodes and number of evidence nodes, for each run.
+  For this mode, the system generates a GM randomly with the given total number of nodes, number of MAP nodes and number of evidence nodes, for each run.
 * Evaluation
   After running with AGS and MPBP on each problem, the system evaluates the solutions by excuting a belief propagation and performing sum-inference on the evidence nodes. 
 * Results
@@ -72,6 +72,9 @@ Use AAOBF for Exact Evaluation
 In our paper, for some problems that are not very large, we use AAOBF to evaluate solutions exactly. To do so, enter the AAOBF/ folder and excute the following command:
 
 ./mmap-solver --input-file ${dir}${prob}.uai --evidence-file ${dir}${prob}.uai.evid --map-file ${dir}${prob}.uai.map --solution-file ${solutionDir}/${Solution} --algorithm evaluator --seed 12345678 --verbose --positive --eval ao
+
+For example, after running the AGS code following the AGS running example, we can evalue the results by 
+./mmap-solver --input-file instances/50-20-1.uai --evidence-file instances/50-20-1.uai.evid --map-file instances/50-20-1.uai.map --solution-file bin/instance-name/Solution/AGS/timeout --algorithm evaluator --seed 12345678 --verbose --positive --eval ao
 
 And the ouput should look like:
 ----------------- Evaluation done ------------------
