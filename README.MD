@@ -97,5 +97,8 @@ One can run AGS and AAOBF on his own problem through making their own UAI files.
 -------------------------------------------------------------------------
 OTHER WORK
 
-Checkout the other project that uses the similar idea of "Aggregate Simulation", but work on MDP planning. 
+Checkout the MDP planner based on aggregate simulation. 
   Link (https://github.com/hcui01/SOGBOFA)
+
+Checkout the POMDP planner based on aggregate simulation. 
+  Link (https://github.com/hcui01/SNAP)
